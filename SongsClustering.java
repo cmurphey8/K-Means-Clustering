@@ -60,7 +60,7 @@ public class SongsClustering {
 
         // BEGIN K-MEANS ALGORITHM
 
-        int numClusters = 3;
+        int numClusters = 5;
 
         // set random initial centroid coordinates
         initCentroids(numClusters);

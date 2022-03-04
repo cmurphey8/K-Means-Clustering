@@ -30,7 +30,7 @@ public class SongsClustering {
     public static Color[] color;    // centroid pen color
 
     // declare number of centroids to form clusters around
-    public static int numClusters = 8;
+    public static int numClusters = 4;
     
     public static void main(String[] args) throws FileNotFoundException {
         // read .txt file from command line

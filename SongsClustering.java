@@ -1,3 +1,17 @@
+//*******************************************************************
+//
+//   File: TaskMan.java
+//
+//   Author: CS112      Email:  
+//
+//   Class: NBody 
+// 
+//   Time spent on this problem: 
+//   --------------------
+//   
+//      This program 
+//
+//*******************************************************************
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -30,7 +44,7 @@ public class SongsClustering {
     public static Color[] color;    // centroid pen color
 
     // declare number of centroids to form clusters around
-    public static int numClusters = 4;
+    public static int numClusters = 8;
     
     public static void main(String[] args) throws FileNotFoundException {
         // read .txt file from command line
@@ -98,20 +112,15 @@ public class SongsClustering {
         // YOU DO: read N tasks into arrays name, dance, energy, and length
         for (int i = 0; i < N; i++) {
             // move from id to name
-            input.next();
 
             // load song name
-            name[i] = input.next();
 
             // move from artist_id to dance
-            input.next();
 
             // import dance (y) and energy (x), scaled to the Panel size
-            dance[i] = (int) (HEIGHT - input.nextDouble() * HEIGHT);
-            energy[i] = (int) (input.nextDouble() * WIDTH) ;
 
             // move to next line
-            input.nextLine();
+
         }
 
         // close .txt file
@@ -121,13 +130,12 @@ public class SongsClustering {
     // called by method: assignSongs
     // YOU DO: complete method to return the index of centroid with minimum distance
     public static int findMin(double[] dist) {
+        // init vars to track index and value of minimum distance in dist array
         int minIndex = 0;
         double minDist = dist[0];
         for (int i = 1; i < dist.length; i++) {
-            if (dist[i] < minDist) {
-                minIndex = i;
-                minDist = dist[i];
-            }
+            // YOU DO: find index and value of the minimum distance in the dist array
+            
         }
         return minIndex;
     }
@@ -139,12 +147,11 @@ public class SongsClustering {
             int[] coordSumsY = new int[numClusters];    // sum of y-coordinate values for all songs in each cluster
             int[] coordCounts = new int[numClusters];   // number of songs in each cluster
             
-            // YOU DO: store sum of x, y song coordinate values for each cluster in coordSumsX, coordSumsY
-            // YOU DO: store total number of songs for each cluster in coordCounts 
             for (int i = 0; i < cluster.length; i++) {
-                coordCounts[cluster[i]]++;
-                coordSumsX[cluster[i]] += energy[i];
-                coordSumsY[cluster[i]] += dance[i];
+                // YOU DO: store sum of x, y song coordinate values for each cluster in coordSumsX, coordSumsY
+
+                // YOU DO: store total number of songs for each cluster in coordCounts
+
             }
     
             // init counter to sum deltas from all centroid shifts
@@ -177,14 +184,11 @@ public class SongsClustering {
         for (int i = 0; i < name.length; i++) {
 
             // YOU DO: set osg pen color by cluster assignment
-            osg.setColor(color[cluster[i]]);
 
             // YOU DO: find x, y arguments for circle centered over plot-point
-            int x = (int) (energy[i] - size / 2.0);
-            int y = (int) (dance[i] + size / 2.0) ;
             
-            // plot song to osg
-            osg.fillOval(x, y, size, size);      
+            // YOU DO: plot song to osg
+     
         }
         // copy off screen image onto DrawingPanel
         g.drawImage(offscreen, 0, 0, null);  

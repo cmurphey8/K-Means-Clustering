@@ -1,17 +1,3 @@
-//*******************************************************************
-//
-//   File: TaskMan.java
-//
-//   Author: CS112      Email:  
-//
-//   Class: NBody 
-// 
-//   Time spent on this problem: 
-//   --------------------
-//   
-//      This program 
-//
-//*******************************************************************
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;

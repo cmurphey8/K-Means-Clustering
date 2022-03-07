@@ -86,7 +86,7 @@ public class SongsClustering {
         input.nextLine();  
         input.nextLine();  
 
-        // set delimiter from whitespace to commas
+        // set delimiter from whitespace to commas - read in csv format
         input.useDelimiter(",");
 
         // define array size

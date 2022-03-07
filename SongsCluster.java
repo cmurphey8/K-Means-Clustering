@@ -1,16 +1,6 @@
 //*******************************************************************
-//
-//   File: TaskMan.java
-//
-//   Author: CS112      Email:  
-//
-//   Class: NBody 
-// 
-//   Time spent on this problem: 
-//   --------------------
-//   
-//      This program 
-//
+//   File: SongsCLuster.java
+//   Dependancies: songs.txt, SongsHelper.java, DrawingPanel.java  
 //*******************************************************************
 
 import java.awt.Color;

@@ -33,7 +33,7 @@ public class SongsClustering {
     public static int numClusters = 8;
     
     public static void main(String[] args) throws FileNotFoundException {
-        // read .txt file from command line
+        // read .txt file from command line - filename is hard-coded for debugging
         String fileName = "songs.txt"; //args[0];
 
         // YOU DO: complete the method load songs

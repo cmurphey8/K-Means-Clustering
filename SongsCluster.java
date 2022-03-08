@@ -57,6 +57,39 @@ public class SongsCluster {
         System.out.println("~fin");
     }
 
+    // YOU DO: complete method to assign each song to its nearest centroid
+    public static void assignSongs() {
+
+        // loop over all songs
+        for (int i = 0; i < numSongs; i++) {     
+            // init array to store distance from each centroid 
+            double[] dist = new double[numClusters];
+
+            // loop over all centroids
+            for (int j = 0; j < numClusters; j++) {
+
+                // YOU DO: store in dist array the distance from this song to each centroid
+                
+
+            }
+
+            // find the minimum distance in the dist array for this song
+            cluster[i] = findMin(dist);
+        }
+    }
+    
+    // YOU DO: complete method to return the index of centroid with minimum distance
+    public static int findMin(double[] dist) {
+        // init var to track index of minimum distance in dist array
+        int minIndex = 0;
+
+        // YOU DO: find index of the minimum distance in the dist array
+        
+
+        // return index of the minimum distance in the dist array (instead of 0)
+        return minIndex;
+    }
+
     // YOU DO: complete method to update centroids
     public static double shiftCentroids() {
         // declare arrays to accumulate centroid data
@@ -94,38 +127,5 @@ public class SongsCluster {
             sum += SongsHelper.distance(cx0, cy0, cx[i], cy[i]); 
         }
         return sum;    
-    }
-
-    // YOU DO: complete method to assign each song to its nearest centroid
-    public static void assignSongs() {
-
-        // loop over all songs
-        for (int i = 0; i < numSongs; i++) {     
-            // init array to store distance from each centroid 
-            double[] dist = new double[numClusters];
-
-            // loop over all centroids
-            for (int j = 0; j < numClusters; j++) {
-
-                // YOU DO: store in dist array the distance from this song to each centroid
-                
-                
-            }
-
-            // find the minimum distance in the dist array for this song
-            cluster[i] = findMin(dist);
-        }
-    }
-    
-    // YOU DO: complete method to return the index of centroid with minimum distance
-    public static int findMin(double[] dist) {
-        // init var to track index of minimum distance in dist array
-        int minIndex = 0;
-
-        // YOU DO: find index of the minimum distance in the dist array
-        
-
-        // return index of the minimum distance in the dist array (instead of 0)
-        return minIndex;
     }
 }   

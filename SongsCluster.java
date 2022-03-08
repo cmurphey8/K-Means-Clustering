@@ -44,10 +44,10 @@ public class SongsCluster {
         double sumDist;
 
         do {
-            // YOU DO: complete helper method findMin to assign each song to its nearest centroid
+            // assign each song to its nearest centroid
             assignSongs();
 
-            // YOU DO: complete method to update centroid coordinates
+            // update centroid coordinates
             sumDist = shiftCentroids();
 
             // plot centroid coordinates
@@ -68,9 +68,11 @@ public class SongsCluster {
             // store total number of songs for each cluster in coordCounts 
             coordCounts[cluster[i]]++;
 
-            // YOU DO: store sum of x, y song coordinate values for each cluster in coordSumsX, coordSumsY        
-            coordSumsX[cluster[i]] += energy[i];
-            coordSumsY[cluster[i]] += dance[i];
+            // YOU DO: store sum of energy (x) coordinate values for each cluster in coordSumsX      
+            
+
+            // YOU DO: store sum of danceability (y) coordinate values for each cluster in coordSumsY      
+
         }
 
         // init counter to sum deltas from all centroid shifts
@@ -94,18 +96,20 @@ public class SongsCluster {
         return sum;    
     }
 
-    // assign each song to its nearest centroid
+    // YOU DO: complete method to assign each song to its nearest centroid
     public static void assignSongs() {
 
         // loop over all songs
-        for (int i = 0; i < numSongs; i++) {
-
-            // store in dist array the distance from this song to each centroid 
+        for (int i = 0; i < numSongs; i++) {     
+            // init array to store distance from each centroid 
             double[] dist = new double[numClusters];
 
             // loop over all centroids
             for (int j = 0; j < numClusters; j++) {
-                dist[j] = SongsHelper.distance(energy[i], dance[i], cx[j], cy[j]);
+
+                // YOU DO: store in dist array the distance from this song to each centroid
+                
+                
             }
 
             // find the minimum distance in the dist array for this song
@@ -119,11 +123,9 @@ public class SongsCluster {
         int minIndex = 0;
 
         // YOU DO: find index of the minimum distance in the dist array
-        for (int i = 1; i < dist.length; i++) {
-            if (dist[i] < dist[minIndex]) {
-                minIndex = i;
-            }
-        }
+        
+
+        // return index of the minimum distance in the dist array (instead of 0)
         return minIndex;
     }
 }   

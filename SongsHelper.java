@@ -1,9 +1,10 @@
 import java.awt.Graphics2D;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.File;
 import java.util.Scanner;
+
 
 public class SongsHelper extends SongsCluster {
     
@@ -69,8 +70,8 @@ public class SongsHelper extends SongsCluster {
         panel.sleep(500);
     }
 
-    // read in song attributes
-    public static void loadSongs() throws FileNotFoundException {
+     // WE DO: read in song attributes
+     public static void loadSongs() throws FileNotFoundException {
         
         // init scanner
         Scanner input = new Scanner(new File("songs.txt"));
@@ -85,9 +86,6 @@ public class SongsHelper extends SongsCluster {
         input.nextLine();  
         input.nextLine();  
 
-        // set delimiter from whitespace to commas
-        input.useDelimiter(",");
-
         // define array size
         name = new String[N];
         dance = new int[N];
@@ -96,21 +94,15 @@ public class SongsHelper extends SongsCluster {
 
         // read N tasks into arrays name, dance, energy, and length
         for (int i = 0; i < N; i++) {
-            // move from id to name
-            input.next();
+            // WE DO: store all fields in next line of file as String array
+            String[] nextLine = input.nextLine().split(",");
 
-            // load song name
-            name[i] = input.next();
+            // WE DO: store song name in name array
+            name[i] = nextLine[1];
 
-            // move from artist_id to dance
-            input.next();
-
-            // import dance (y) and energy (x), scaled to the Panel size
-            dance[i] = (int) (HEIGHT - input.nextDouble() * HEIGHT);
-            energy[i] = (int) (input.nextDouble() * WIDTH) ;
-
-            // move to next line
-            input.nextLine();
+            // WE DO: store dance (y) and energy (x), scaled to the Panel size
+            dance[i] = (int) (HEIGHT - Double.parseDouble(nextLine[3]) * HEIGHT);
+            energy[i] = (int) (Double.parseDouble(nextLine[4]) * WIDTH) ;
         }
 
         // close .txt file

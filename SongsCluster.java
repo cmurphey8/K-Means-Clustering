@@ -12,25 +12,33 @@ public class SongsCluster {
     static final int WIDTH = 600;
     static final int HEIGHT = 400;
 
-    // declare data arrays
+    // declare song data arrays
     public static String[] name;    // song name
     public static int[] dance;      // danceability (y coordinate)
     public static int[] energy;     // energy       (x coordinate)
     public static int[] cluster;    // cluster assignments
+
+    // store number of songs in our data set
+    public static int numSongs;
 
     // declare centroid arrays
     public static int[] cx;         // centroid x-coordinates
     public static int[] cy;         // centroid y-coordinates
     public static Color[] color;    // centroid pen color
 
-    // declare number of centroids to form clusters around
+    // store number of centroids to form clusters around
     public static int numClusters = 6;
+
+
     
     public static void main(String[] args) throws FileNotFoundException {
 
         // init arrays
         SongsHelper.loadSongs();
         SongsHelper.initCentroids();
+
+        // define length constant for song data arrays
+        numSongs = name.length;
 
         // init algorithm stop condition
         double sumDist;
@@ -56,10 +64,11 @@ public class SongsCluster {
         int[] coordSumsY = new int[numClusters];    // sum of y-coordinate values for all songs in each cluster
         int[] coordCounts = new int[numClusters];   // number of songs in each cluster
         
-        // YOU DO: store sum of x, y song coordinate values for each cluster in coordSumsX, coordSumsY
-        // YOU DO: store total number of songs for each cluster in coordCounts 
-        for (int i = 0; i < cluster.length; i++) {
+        for (int i = 0; i < numSongs; i++) {
+            // store total number of songs for each cluster in coordCounts 
             coordCounts[cluster[i]]++;
+
+            // YOU DO: store sum of x, y song coordinate values for each cluster in coordSumsX, coordSumsY        
             coordSumsX[cluster[i]] += energy[i];
             coordSumsY[cluster[i]] += dance[i];
         }
@@ -89,28 +98,30 @@ public class SongsCluster {
     public static void assignSongs() {
 
         // loop over all songs
-        for (int i = 0; i < cluster.length; i++) {
-            // declare distance data array
+        for (int i = 0; i < numSongs; i++) {
+
+            // store in dist array the distance from this song to each centroid 
             double[] dist = new double[numClusters];
 
-            // load distance data into array 
+            // loop over all centroids
             for (int j = 0; j < numClusters; j++) {
                 dist[j] = SongsHelper.distance(energy[i], dance[i], cx[j], cy[j]);
             }
+
+            // find the minimum distance in the dist array for this song
             cluster[i] = findMin(dist);
         }
     }
     
     // YOU DO: complete method to return the index of centroid with minimum distance
     public static int findMin(double[] dist) {
-        // init vars to track index and value of minimum distance in dist array
+        // init var to track index of minimum distance in dist array
         int minIndex = 0;
-        double minDist = dist[0];
+
+        // YOU DO: find index of the minimum distance in the dist array
         for (int i = 1; i < dist.length; i++) {
-            // YOU DO: find index and value of the minimum distance in the dist array
-            if (dist[i] < minDist) {
+            if (dist[i] < dist[minIndex]) {
                 minIndex = i;
-                minDist = dist[i];
             }
         }
         return minIndex;

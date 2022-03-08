@@ -95,14 +95,15 @@ public class SongsHelper extends SongsCluster {
         // read N tasks into arrays name, dance, energy, and length
         for (int i = 0; i < N; i++) {
             // WE DO: store all fields in next line of file as String array
-            String[] nextLine = input.nextLine().split(",");
+            
 
             // WE DO: store song name in name array
-            name[i] = nextLine[1];
-
+            
+            
             // WE DO: store dance (y) and energy (x), scaled to the Panel size
-            dance[i] = (int) (HEIGHT - Double.parseDouble(nextLine[3]) * HEIGHT);
-            energy[i] = (int) (Double.parseDouble(nextLine[4]) * WIDTH) ;
+            
+            
+            
         }
 
         // close .txt file
@@ -133,9 +134,4 @@ public class SongsHelper extends SongsCluster {
     public static int rand(int max, double remPercent){
         return (int) (Math.random() * ((1 - remPercent) * max) + remPercent / 2 * max);
     }
-
-    // standard L2 norm - root of sum of squares distance formula
-    public static double distance(int x1, int y1, int x2, int y2) {
-        return Math.sqrt((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2));
-    } 
 }

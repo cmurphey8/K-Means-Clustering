@@ -29,6 +29,7 @@ public class SongsCluster {
     // store number of centroids to form clusters around
     public static int numClusters = 6;
 
+
     
     public static void main(String[] args) throws FileNotFoundException {
 
@@ -76,6 +77,11 @@ public class SongsCluster {
             cluster[i] = findMin(dist);
         }
     }
+
+    // HELPER: root of sum of squares distance formula
+    public static double distance(int x1, int y1, int x2, int y2) {
+        return Math.sqrt((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2));
+    } 
     
     // YOU DO: complete method to return the index of centroid with minimum distance
     public static int findMin(double[] dist) {

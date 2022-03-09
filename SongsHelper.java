@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.File;
 import java.util.Scanner;
 
-
 public class SongsHelper extends SongsCluster {
     
     // init drawing panel
@@ -15,7 +14,6 @@ public class SongsHelper extends SongsCluster {
     // enable double buffering
     static BufferedImage offscreen = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
     static Graphics2D osg = offscreen.createGraphics();
-    
 
     // update plots
     public static void update() {

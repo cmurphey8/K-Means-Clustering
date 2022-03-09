@@ -51,7 +51,7 @@ public class SongsHelper extends SongsCluster {
         final int size = 2;
 
         // plot all songs, color-coded by nearest centroid
-        for (int i = 0; i < name.length; i++) {
+        for (int i = 0; i < SongsCluster.numSongs; i++) {
 
             // set osg pen color by cluster assignment
             osg.setColor(color[cluster[i]]);
@@ -87,7 +87,6 @@ public class SongsHelper extends SongsCluster {
         input.nextLine();  
 
         // define array size
-        name = new String[N];
         dance = new int[N];
         energy = new int[N];
         cluster = new int[N];
@@ -96,12 +95,8 @@ public class SongsHelper extends SongsCluster {
         for (int i = 0; i < N; i++) {
             // WE DO: store all fields in next line of file as String array
             
-
-            // WE DO: store song name in name array
-            
             
             // WE DO: store dance (y) and energy (x), scaled to the Panel size
-            
             
             
         }

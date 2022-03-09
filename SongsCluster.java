@@ -28,7 +28,6 @@ public class SongsCluster {
     // store number of centroids to form clusters around
     public static int numClusters = 6;
 
-
     
     public static void main(String[] args) throws FileNotFoundException {
 

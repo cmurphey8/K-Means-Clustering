@@ -91,7 +91,7 @@ public class SongsHelper extends SongsCluster {
         energy = new int[N];
         cluster = new int[N];
 
-        // read N tasks into arrays name, dance, energy, and length
+        // read N song attributes into arrays dance & energy
         for (int i = 0; i < N; i++) {
             // WE DO: store all fields in next line of file as String array
             

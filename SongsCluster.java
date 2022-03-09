@@ -13,7 +13,6 @@ public class SongsCluster {
     static final int HEIGHT = 400;
 
     // declare song data arrays
-    public static String[] name;    // song name
     public static int[] dance;      // danceability (y coordinate)
     public static int[] energy;     // energy       (x coordinate)
     public static int[] cluster;    // cluster assignments
@@ -38,7 +37,7 @@ public class SongsCluster {
         SongsHelper.initCentroids();
 
         // define length constant for song data arrays
-        numSongs = name.length;
+        numSongs = dance.length;
 
         // init algorithm stop condition
         double sumDist;
